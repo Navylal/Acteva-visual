@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+  </style>
+
+    <title>Acteva Visual</title>
+   </head>
+  <body class="bg-gray-900">
+    
+    <!-- Navbar (tambah hamburger aja)-->
+    <header class="absolute top-0 left-0 w-full flex items-center justify-between px-10 py-5 bg-black bg-opacity-70">
+      <!-- Logo -->
+      <img class="w-10 h-auto" src="img/tp_av white.png" alt="image description">
+      <!-- Menu -->
+      <nav class="hidden md:flex space-x-8 text-white font-semibold">
+        <a href="#hero" class="hover:text-gray-300">HOME</a>
+        <a href="#portfolio" class="hover:text-gray-300">PORTFOLIO</a>
+        <a href="#about" class="hover:text-gray-300">ABOUT</a>
+        <a href="#service" class="hover:text-gray-300">SERVICES</a>
+        <a href="#contact" class="hover:text-gray-300">CONTACT</a>
+      </nav>
+      <!-- Button -->
+      <a href="#" class="bg-white text-black font-medium px-4 py-2 rounded hover:bg-gray-200">Book Session</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero"
+      class="h-screen bg-cover bg-center flex flex-col items-center justify-center text-center px-4"
+      style="background-image: linear-gradient(rgba(30,30,30,0.7), rgba(30,30,30,0.7)), url('img/hero bg.jpg');"
+    >
+      <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4">
+        DOING CREATIVITY ON YOU
+      </h1>
+      <p class="text-lg md:text-xl text-gray-200 max-w-2xl mb-8">
+        Professional photography team specializing in events, weddings, private
+        session, graduation. We transform your special moments into timeless
+        memories.
+      </p>
+      <div class="flex space-x-4">
+        <a href="#"
+          class="bg-white text-black px-6 py-3 rounded font-semibold hover:bg-gray-200"
+          >View our work</a
+        >
+        <a href="#"
+          class="bg-white text-black px-6 py-3 rounded font-semibold hover:bg-gray-200"
+          >Book Consultation</a
+        >
+      </div>
+    </section>
+
+    <!-- Placeholder untuk load section -->
+    <div id="portfolio"></div>
+    <div id="about"></div>
+    <div id="service"></div>
+    <div id="contact"></div>
+    <div id="footer"></div>
+
+    <!-- Script Load Sections -->
+    <script>
+      async function loadSection(id, file) {
+        const el = document.getElementById(id);
+        const res = await fetch(file);
+        el.innerHTML = await res.text();
+      }
+
+      loadSection('portfolio', './sections/portfolio.html');
+      loadSection('about','./sections/about.html');
+      loadSection('service', './sections/service.html');
+      loadSection('contact', './sections/contact.html');
+      loadSection('footer', './sections/footer.html');
+    </script>
+  </body>
+</html>
